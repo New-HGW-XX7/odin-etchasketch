@@ -11,21 +11,6 @@ resetbtn.addEventListener('click', () => {
     });
 })
 
-for(let x = 0; x < 16; x++) {
-    const innerContainer = document.createElement('div');
-    innerContainer.classList.add('innerContainer');
-    container.appendChild(innerContainer);
-        for(let y = 0; y < 16; y++) {
-            const innerDiv = document.createElement('div');
-            innerDiv.classList.add('innerDiv');
-            innerContainer.appendChild(innerDiv);
-
-            innerDiv.addEventListener('mouseenter', () => {
-                innerDiv.style.backgroundColor = 'red';
-            })
-        }
-}
-
 const selectbtn = document.querySelector('.select-size');
 selectbtn.addEventListener('click', () => {
     while(container.lastElementChild) {
@@ -33,3 +18,25 @@ selectbtn.addEventListener('click', () => {
     }
 
 });
+
+
+
+// Default Grid
+createGrid(16);
+
+function createGrid(extent) {
+    for(let x = 0; x < extent; x++) {
+        const innerContainer = document.createElement('div');
+        innerContainer.classList.add('innerContainer');
+        container.appendChild(innerContainer);
+            for(let y = 0; y < extent; y++) {
+                const innerDiv = document.createElement('div');
+                innerDiv.classList.add('innerDiv');
+                innerContainer.appendChild(innerDiv);
+    
+                innerDiv.addEventListener('mouseenter', () => {
+                    innerDiv.style.backgroundColor = 'red';
+                })
+            }
+    }   
+}
