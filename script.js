@@ -18,7 +18,6 @@ selectbtn.addEventListener('click', () => {
     let gridSize = Number(prompt('Select your square'));
     while(true) {
         if((gridSize > 0) && (gridSize <= 100) && (gridSize !== 'NaN')) {
-            console.log(gridSize);
             createGrid(gridSize);
             break;
         } else {
@@ -38,7 +37,7 @@ function createGrid(extent) {
         const innerContainer = document.createElement('div');
         innerContainer.classList.add('innerContainer');
         container.appendChild(innerContainer);
-        
+
             for(let y = 0; y < extent; y++) {
                 const innerDiv = document.createElement('div');
                 innerDiv.classList.add('innerDiv');
