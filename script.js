@@ -1,5 +1,3 @@
-let gridSize;
-
 const container = document.querySelector('.container');
 
 const resetbtn = document.querySelector('.reset');
@@ -17,11 +15,22 @@ selectbtn.addEventListener('click', () => {
         container.removeChild(container.lastElementChild);
     }
 
+    let gridSize = Number(prompt('Select your square'));
+    while(true) {
+        if((gridSize > 0) && (gridSize <= 100) && (gridSize !== 'NaN')) {
+            console.log(gridSize);
+            createGrid(gridSize);
+            break;
+        } else {
+            alert('Plase select a number between 1 and 100');
+            gridSize = Number(prompt('Select your square'));
+        }
+    }
 });
 
 
 
-// Default Grid
+// Default size
 createGrid(16);
 
 function createGrid(extent) {
@@ -29,6 +38,7 @@ function createGrid(extent) {
         const innerContainer = document.createElement('div');
         innerContainer.classList.add('innerContainer');
         container.appendChild(innerContainer);
+        
             for(let y = 0; y < extent; y++) {
                 const innerDiv = document.createElement('div');
                 innerDiv.classList.add('innerDiv');
