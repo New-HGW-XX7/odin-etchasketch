@@ -14,15 +14,11 @@ const container = document.querySelector('.container');
 const resetbtn = document.querySelector('.reset');
 resetbtn.addEventListener('click', () => {
     const divGroup = document.querySelectorAll('.innerDiv');
-    // for(divElement of divGroup) {
-    //     divElement.style.backgroundColor = 'grey';
-    // } Phased out in favour of forEach() + external function
-    divGroup.forEach(resetDivs);
+   
+    divGroup.forEach((divElement) => {
+        divElement.style.backgroundColor = 'grey';
+    });
 })
-
-function resetDivs(divElement) {
-    divElement.style.backgroundColor = 'grey';
-}
 
 for(let x = 0; x < 8; x++) {
     const innerContainer = document.createElement('div');
