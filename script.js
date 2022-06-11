@@ -13,7 +13,7 @@ const container = document.querySelector('.container');
 
 const resetbtn = document.querySelector('.reset');
 resetbtn.addEventListener('click', () => {
-    const divGroup = document.querySelector('.container').childNodes;
+    const divGroup = document.querySelectorAll('.innerDiv');
     // for(divElement of divGroup) {
     //     divElement.style.backgroundColor = 'grey';
     // } Phased out in favour of forEach() + external function
@@ -32,6 +32,10 @@ for(let x = 0; x < 8; x++) {
             const innerDiv = document.createElement('div');
             innerDiv.classList.add('innerDiv');
             innerContainer.appendChild(innerDiv);
+
+            innerDiv.addEventListener('mouseenter', () => {
+                innerDiv.style.backgroundColor = 'red';
+            })
         }
 }
 
